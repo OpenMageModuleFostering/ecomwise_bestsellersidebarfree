@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <tabs>
+		<ecomwise translate="label">
+            <label>B2B-extensions</label>
+            <sort_order>100</sort_order>
+        </ecomwise>
+    </tabs>
+    <sections>
+        <base translate="label" module="base">
+            <label>Notifications</label>
+            <tab>ecomwise</tab>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+	          <extensions translate="label">
+                    <label>Installed Extensions</label>
+                    <frontend_type>text</frontend_type>
+                    <frontend_model>base/notificationsNotifier_system_config_form_fieldset_ecomwise_extensions</frontend_model>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+              </extensions>
+              <rss translate="label">
+					<label>Options</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>2</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<feed translate="label">
+                            <label>I'd like to be informed by Ecomwise about:</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <can_be_empty>1</can_be_empty>
+                            <source_model>base/notificationsNotifier_source_updates_type</source_model>
+                        </feed>
+                    </fields>
+				</rss>
+            </groups>
+        </base>
+    </sections>
+</config>

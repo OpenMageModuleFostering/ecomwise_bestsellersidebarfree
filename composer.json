@@ -3,11 +3,11 @@
     "type": "magento-module",
     "license": "OSL-3.0",
     "homepage": "",
-    "description": "BestsellerSidebarFree",
+    "description": "Ecomwise_BestsellerSidebarFree",
     "authors": [
     {
         "name": "EcomwiseTeam",
-        "email": "info@experius.nl"
+        "email": "info@ecomwise.com"
     }
 ],
     "suggest": {
