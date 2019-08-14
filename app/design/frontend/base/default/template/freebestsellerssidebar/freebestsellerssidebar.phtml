@@ -28,7 +28,7 @@
     					</td>
     					<td>    					
     					<?php $tax = $wee->getAmountForDisplay($product); ?>    					 
-    						<div class="product-title"><?php echo $product->getName()?></div>
+    						<div class="product-title"><a href="<?php echo $product->getProductUrl()?>"><span><?php echo $product->getName()?></span></a></div>
     						<div class="bestsellers-price">
     							<?php echo $price_html?>
     						</div>
@@ -43,7 +43,7 @@
 	    <?php 
 			}else{
 				if(Mage::registry('current_category')){
-					echo $this->__('No results category');
+					echo $this->__('No best sold products present');
 				}else{
 					echo $this->__('No results');
 				}

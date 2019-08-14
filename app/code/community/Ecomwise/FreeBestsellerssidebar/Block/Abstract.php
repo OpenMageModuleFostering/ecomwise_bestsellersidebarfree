@@ -53,13 +53,13 @@ class Ecomwise_FreeBestsellerssidebar_Block_Abstract extends Mage_Core_Block_Tem
     
     private function getProductsCollection()
     {
-    	$productCollection = Mage::getResourceModel('reports/product_collection')
-			->addOrderedQty()
-			->addAttributeToSelect(array('entity_id', 'entity_type_id', 'attribute_set_id', 'type_id', 'sku', 'has_options', 'required_options', 'created_at', 'updated_at'))
-			->setStoreId(Mage::app()->getStore()->getId())
-            ->addStoreFilter(Mage::app()->getStore()->getId())
-            ->setOrder('ordered_qty', 'desc')
-            ->setPageSize(3);
+    	$connection = Mage::getModel('core/resource')->getConnection('core_read');
+		$sql = 'SELECT DISTINCT product_id FROM sales_bestsellers_aggregated_daily ORDER BY qty_ordered DESC';
+		$product_ids = $connection->fetchAll($sql);
+			
+   		$productCollection = Mage::getModel('catalog/product')->getCollection()
+                ->addAttributeToFilter('entity_id', array('in' => $product_ids))
+                ->setPageSize(3);
 
     	return $productCollection;
     }

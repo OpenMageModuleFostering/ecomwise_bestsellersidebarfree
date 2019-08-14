@@ -1,13 +1,8 @@
 <?xml version="1.0"?>
-<layout version="0.1.0">
-    <!-- <default>
-	 <reference name="left">
-            <block type="Ecomwise_FreeBestsellerssidebar/bestsellers"/>
-        </reference>
-    </default> -->
+<layout version="0.1.0">  
     <freebestsellerssidebar_index_index>
         <reference name="content">
-            <block type="Ecomwise_FreeBestsellerssidebar/bestsellers"/>
+            <block type="Ecomwise_FreeBestsellerssidebar/bestsellers" name="ecomwise.freebestsellerssidebar.bestsellers" as="bestsellers"/>
         </reference>
     </freebestsellerssidebar_index_index>
 </layout> 
