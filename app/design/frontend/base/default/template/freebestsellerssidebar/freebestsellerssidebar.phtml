@@ -1,74 +1,44 @@
-<?php //echo $this->getJs();?>
-<?php 
-	$freebestsellerssidebarStatus = (bool) Mage::getStoreConfig('freebestsellerssidebar/info/disable_ext', Mage::app()->getStore());
-	if(!$freebestsellerssidebarStatus){
-?>
-<style><?php echo $this->getStyle()?></style>
-
-<?php 
-	$version = Mage::getVersion(); 
-	$subversion = substr($version, strpos($version,'.')+1, 1);
-?>
-
-<?php 
-	$version = Mage::getVersion(); 
-	$subversion = substr($version, strpos($version,'.')+1, 1);
-?>
-
-<?php
-	if($subversion == 4 or $subversion == 5){
-?>
 <div class="block block-bestsellers">
-	<div class="block-title"><strong><span><?php  echo $this->title();?></span></strong></div>
+	<div class="block-title"><strong><?php  echo $this->title();?></strong></div>
 	<div class="block-content">
-
-<?php }else{?>
-	<div class="box base-mini">
-		<div class="head"><h4><?php  echo $this->title();?></h4></div>
-		<div class="content">
-<?php }?>
-	
-		<?php
-			$_helper = $this->helper('catalog/output'); 
-			$bestsellers = $this->getBestsellers();
-			if(count($bestsellers) > 0){
+	<?php $product_block  = $this->getLayout()->createBlock('catalog/product') ?>	
+	<?php $wee  = Mage::helper('weee');
+		  $_helper = $this->helper('catalog/output'); 
+		  $bestsellers = $this->getBestsellers();
+		  $_taxHelper  = Mage::helper('tax');
+	      if(count($bestsellers) > 0){
 		?>
 			<table>
-		<?php 
-		 	foreach($bestsellers as $product_array){
+		<?php 		    
+		 	foreach($bestsellers as $product_array) {
 				$qty = $product_array[0];
 				$product = $product_array[1];
+				$product = Mage::getModel("catalog/product")->load($product->getId());				
+				//$_finalPrice = $_taxHelper->getPrice($product, $product->getFinalPrice());
+				//$price_html = $product_block->getPriceHtml($product);
+				$price_html = Mage::helper('core')->currency($product->getFinalPrice(), true, false);				
 		?>	
     				<tr>
     					<td>
-    						<div><?php echo $product->getName()?></div>
-    						<div>
-    						<b>
-    							<?php 
-    						    $finalPrice = number_format($product->getSpecialPrice(),2);
-    							$price = $product->getPrice();
-    							if($product->getSpecialPrice()){?>
-    								<div class="from-price">Van: €<?php echo number_format($price, 2)?></div>
-    								<div>Voor: € <span class="to-price"><?php echo number_format($finalPrice, 2)?></span></div>
-    							<?php }else{ ?>
-    								€ <?php echo number_format($product->getPrice(),2)?>
-    							<?php }?>							
-    						</b>
-    						</div>
-    					</td>
-    					<td>
     						<a href="<?php echo $product->getProductUrl() ?>" 
-    						   title="<?php echo $this->getImageLabel($product, 'small_image') ?>" 
+    						   title="<?php echo $this->stripTags($this->getImageLabel($product, 'small_image'), null, true) ?>" 
     						   class="product-image">
-    						   <img src="<?php echo $this->helper('catalog/image')->init($product, 'small_image')->resize(85)?>" 
-    						   		width="85" 
-    						   		height="85" />
+    						   <img src="<?php echo $this->helper('catalog/image')->init($product, 'small_image')->resize(75)?>" />
     						</a>
     					</td>
+    					<td>    					
+    					<?php $tax = $wee->getAmountForDisplay($product); ?>    					 
+    						<div class="product-title"><?php echo $product->getName()?></div>
+    						<div class="bestsellers-price">
+    							<?php echo $price_html?>
+    						</div>
+    						<div class="more-info">
+    							<a href="<?php echo $product->getProductUrl()?>"><span><?php echo $this->__("More Info.")?></span></a>
+    						</div>
+    						<div style="clear:all"></div>
+    					</td>    					
     				</tr>
-	    <?php 
-	        	}
-	    ?>
+	    <?php } ?>
 	    	</table>
 	    <?php 
 			}else{
@@ -81,4 +51,3 @@
 		?>
 	</div>
 </div>
-<?php }?>

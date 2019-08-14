@@ -1,0 +1,54 @@
+<?php $_helper = $this->helper('freebestsellerssidebar'); ?>
+<style type="text/css">
+.contentWrap h2{
+	font-size:13px;
+	padding: 10px 0 4px;
+}
+
+.contentWrap .version h2, .contentWrap .compatibility h2 {
+	float: left;
+	width: 200px;
+}
+
+.contentWrap .installation{
+	padding-bottom:20px;
+}
+.contentWrap div{
+	padding-bottom:15px;
+}
+
+.contentWrap div.paragraph{
+	padding: 11px 0 4px;	
+}
+</style>
+<div class="contentWrap">	    
+    <div>
+    	<h2><?php echo $_helper->__('Name & Version:');?></h2>
+    	<p><?php echo $this->name?> <?php echo Mage::getConfig()->getModuleConfig($this->module)->version;?></p>
+	</div>
+    <div>
+    	<h2><?php echo $_helper->__('Compatibility:');?></h2>
+    	<p><?php echo $this->compatibility;?></p>		
+    </div>
+    <div class="documentation">
+    	<h2><?php echo $_helper->__('Documentation & Installation');?></h2>    		
+    	<p><?php echo $_helper->__('Read the installation manual & user guide to help you with the installation and configuration.');?></p>
+    	<p><?php echo $_helper->__('<a class="pdf" href="'.$this->manualUrl.'" title="Download User Guide" target="'.$this->manualUrl.'">Bestseller Sidebar Free installation & user guide</a>');?></p>    	    	    			    	
+    </div>
+    
+    <div class="questions">
+    	<h2><?php echo $_helper->__('Support & Questions?');?></h2>    		
+    	<p><?php echo $_helper->__('Visit our %s for more info.','<a href="'.$this->faq.'" target="_blank">FAQ page</a>');?></p>
+    	<p><?php echo $_helper->__('<a class="support" href="'.$this->supportUrl.'" title="Contact Support" target="_blank">'.$_helper->__('Contact support').'</a>');?></p>    			    		
+    </div>
+       
+    <div class="about">
+    	<h2><?php echo $_helper->__('About B2B Extensions');?></h2>    		
+    	<p><?php echo $_helper->__('B2B Extensions is a product of %s','<a href="http://www.ecomwise.com/" target="_blank">Ecomwise.com</a>');?></p>    			    		
+    </div>
+    
+    <div class="mail">
+    	<h2><?php echo $_helper->__('Do you have Feedback or improvements?');?></h2>    		
+    	<p><?php echo $_helper->__('<a href="mailto:'.$this->email.'" target="_blank">Please e-mail us your feedback</a>');?></p>    			    		
+    </div>    	    
+</div> 

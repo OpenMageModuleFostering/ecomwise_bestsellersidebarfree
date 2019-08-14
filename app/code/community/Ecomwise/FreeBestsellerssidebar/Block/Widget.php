@@ -1,0 +1,5 @@
+<?php
+class Ecomwise_FreeBestsellerssidebar_Block_Widget extends Ecomwise_FreeBestsellerssidebar_Block_Abstract implements Mage_Widget_Block_Interface
+{
+
+}

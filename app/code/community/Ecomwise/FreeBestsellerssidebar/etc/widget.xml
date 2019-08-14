@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets>
+	<bestseller_widget type="freebestsellerssidebar/widget" translate="name description" module="freebestsellerssidebar">
+		<name>Free Bestseller</name>
+		<description>Adds a Bestseller block</description>
+		<parameters>			
+			<template translate="label">
+                <label>Frontend Template</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>select</type>
+                <values>
+                    <text translate="label">
+                        <value>freebestsellerssidebar/freebestsellerssidebar.phtml</value>
+                        <label>Free Bestseller</label>
+                    </text>                    
+                </values>
+            </template>
+		</parameters>		
+	</bestseller_widget>
+</widgets>
