@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/Ecomwise_BestsellerSidebarFree",
+    "name": "OpenMageModuleFostering\/Ecomwise_BestsellerSidebarFree",
     "type": "magento-module",
     "license": "OSL-3.0",
     "homepage": "",
     "description": "Ecomwise_BestsellerSidebarFree",
     "authors": [
-    {
-        "name": "EcomwiseTeam",
-        "email": "info@ecomwise.com"
-    }
-],
+        {
+            "name": "EcomwiseTeam",
+            "email": "info@ecomwise.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
